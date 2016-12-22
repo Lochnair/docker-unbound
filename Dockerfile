@@ -12,6 +12,7 @@ RUN apk add \
     bash \
     curl \
     openssl \
+    shadow \
     unbound
 
 # Setup Unbound control
