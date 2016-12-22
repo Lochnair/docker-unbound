@@ -9,6 +9,7 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C /
 RUN apk add \
     --no-cache \
     --update \
+    bash \
     curl \
     openssl \
     unbound
