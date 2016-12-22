@@ -7,6 +7,7 @@ RUN apk add \
     --no-cache \
     --update \
     curl \
+    openssl \
     unbound
 
 # Setup Unbound control
