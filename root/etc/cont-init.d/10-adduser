@@ -1,0 +1,19 @@
+#!/usr/bin/with-contenv bash
+
+PUID=${PUID:-313}
+PGID=${PGID:-313}
+
+groupmod -o -g "$PGID" unbound
+usermod -o -u "$PUID" unbound
+
+echo "
+-------------------------------------
+Brought to you by some white nigga.
+-------------------------------------
+GID/UID
+-------------------------------------
+User uid:    $(id -u unbound)
+User gid:    $(id -g unbound)
+-------------------------------------
+"
+chown -R unbound:unbound /etc/unbound
