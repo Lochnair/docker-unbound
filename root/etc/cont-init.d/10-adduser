@@ -8,8 +8,6 @@ usermod -o -u "$PUID" unbound
 
 echo "
 -------------------------------------
-Brought to you by some white nigga.
--------------------------------------
 GID/UID
 -------------------------------------
 User uid:    $(id -u unbound)
