@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv bash
+cd /config || exit
+exec \
+	/usr/sbin/unbound -d -v -c /etc/unbound/unbound.conf

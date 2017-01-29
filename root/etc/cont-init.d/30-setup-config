@@ -1,0 +1,25 @@
+#!/usr/bin/with-contenv bash
+
+# Download root hints if not found
+if [ ! -f "/etc/unbound/root.hints" ]; then
+	printf "Couldn't find root hints, downloading... "
+	curl -s -o /etc/unbound/root.hints https://www.internic.net/domain/named.cache
+	printf "done.\n"
+fi
+
+# Download trusted keys if not found
+if [ ! -f "/etc/unbound/root.key" ]; then
+	printf "Couldn't find root keys, downloading... "
+	unbound-anchor -a /etc/unbound/root.key
+	printf "done.\n"
+fi
+
+# Copy default config, if unbound.conf doesn't exist
+if [ ! -f "/etc/unbound/unbound.conf" ]; then
+	printf "unbound.conf not found, copying default... "
+	cp /etc/unbound.dist/unbound.conf /etc/unbound/unbound.conf
+	printf "done.\n"
+fi
+
+# Run unbound control setup
+unbound-control-setup
